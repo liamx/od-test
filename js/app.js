@@ -4,17 +4,20 @@ const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
 const links = document.querySelector(".nav-item");
 
-
-hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
-    hamburger.classList.toggle("open");
+$(document).ready(function(){
+  $(hamburger).click(function(){
+    $(navLinks).toggleClass("open");
+    $(hamburger).toggleClass("open");
+  });
 });
+
+
 //Nav-link toggle
 $(document).ready(function(){
-  $('.nav-item').on('click', function(){
+$('.nav-item').on('click', function(){
     $('.nav-links').removeClass('open');
     $('.hamburger').removeClass('open');
-  })
+})
 });
 
 
@@ -86,76 +89,17 @@ var animation8 = bodymovin.loadAnimation({
 });
 
 
-//drop orange animation
-//this has a duration and animates the playhead on the Lottie animation for a smoother result
-ScrollLottie({
-  target: '#introAnim',
-  path: 'animation/introAnim/introAnim.json', 
-  duration: 3, 
-  speed: 'slow'
- })
-
- ScrollLottie({
-  target: '#dropAnim',
-  path: 'animation/dropAnim/dropAnim.json', 
-  duration: 6, 
-  speed: 'slow'
- })
- ScrollLottie({
-  target: '#dropMobileAnim',
-  path: 'animation/dropMobileAnim/dropMobileAnim.json', 
-  duration: 3, 
-  speed: 'slow'
- })
-
-//  LottieInteractivity.create({
-//   mode:"scroll",
-//   player:'#wayToGoAnim',
-//   actions: [
-//     {
-//       visibility:[0,1],
-//       type: "seek",
-//       frames: [0, 200]
-//     },
-//     {
-//       visibility:[1,1],
-//       type: "loop",
-//       frames: [199, 201]
-//     }
-//   ]
-// });
-
 // Way To Go lottie
 LottieInteractivity.create({
   mode:"scroll",
   player:'#wayToGoAnim',
   actions: [
-    // {
-    //   visibility:[0, 0.1],
-    //   type: "stop",
-    //   frames: [0]
-    // },
     {
-      visibility:[0.1, 0.8],
+      visibility:[0.1, 0.6],
       type: "seek",
       frames: [1,130]
     }
-    // {
-    //   visibility:[ 0.1,1],
-    //   type: "stop",
-    //   frames: [130]
-    // }
   ]  
 });
-
-// Email validation
-
-// Get element with ".animated" class, which has "data-sal" attribute
-const element = document.querySelector('.animated');
-
-element.addEventListener('sal:in', ({ detail }) => {
-  console.log('entering', detail.target);
-});
-
 
 
